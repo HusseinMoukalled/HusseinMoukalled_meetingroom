@@ -1,25 +1,30 @@
 from pydantic import BaseModel
-from typing import Optional
 
-class ReviewBase(BaseModel):
-    username:str
-    room_id:int
-    rating:int
-    comment:Optional[str]=None
 
-class ReviewCreate(ReviewBase):
-    pass
+class ReviewCreate(BaseModel):
+    username: str
+    room_id: int
+    rating: int
+    comment: str
 
-class ReviewUpdate(BaseModel):
-    rating:Optional[int]=None
-    comment:Optional[str]=None
 
-class ReviewResponse(ReviewBase):
-    id:int
-    flagged:Optional[str]=None
+class UpdateReview(BaseModel):
+    rating: int | None = None
+    comment: str | None = None
 
-    class Config:
-        orm_mode=True
 
 class FlagReview(BaseModel):
-    reason:Optional[str]=None
+    reason: str
+
+
+class ReviewResponse(BaseModel):
+    id: int
+    username: str
+    room_id: int
+    rating: int
+    comment: str
+    is_flagged: bool
+    flag_reason: str | None
+
+    class Config:
+        from_attributes = True

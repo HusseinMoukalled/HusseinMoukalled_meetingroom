@@ -1,6 +1,13 @@
 from fastapi import FastAPI
-from app.routers import reviews
+from shared.database import Base, engine
+from reviews_service.app.routers.reviews import router
 
-app=FastAPI()
+import users_service.app.models
+import rooms_service.app.models
+import reviews_service.app.models
 
-app.include_router(reviews.router,prefix="/reviews",tags=["Reviews"])
+Base.metadata.create_all(bind=engine)
+
+app = FastAPI()
+
+app.include_router(router, prefix="/reviews")

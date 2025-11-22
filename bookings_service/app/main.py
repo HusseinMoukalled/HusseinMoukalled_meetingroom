@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from app.routers import bookings
+from bookings_service.app.routers import bookings
 
-app=FastAPI()
+app = FastAPI()
 
-app.include_router(bookings.router,prefix="/bookings",tags=["Bookings"])
+app.include_router(bookings.router, prefix="/bookings", tags=["Bookings"])

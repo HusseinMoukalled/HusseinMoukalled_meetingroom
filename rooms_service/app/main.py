@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import rooms
+from rooms_service.app.routers import rooms
 
 app=FastAPI()
 

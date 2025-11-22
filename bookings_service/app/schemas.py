@@ -1,31 +1,26 @@
 from pydantic import BaseModel
+from datetime import date, time
 from typing import Optional
 
-class BookingBase(BaseModel):
-    username:str
-    room_id:int
-    date:str
-    start_time:str
-    end_time:str
-
-class BookingCreate(BookingBase):
-    pass
+class BookingCreate(BaseModel):
+    username: str
+    room_id: int
+    date: date
+    start_time: time
+    end_time: time
 
 class BookingUpdate(BaseModel):
-    room_id:Optional[int]=None
-    date:Optional[str]=None
-    start_time:Optional[str]=None
-    end_time:Optional[str]=None
+    date: Optional[date] = None
+    start_time: Optional[time] = None
+    end_time: Optional[time] = None
 
-class BookingResponse(BookingBase):
-    id:int
-
-    class Config:
-        orm_mode=True
-
-class AvailabilityResponse(BaseModel):
-    room_id:int
-    available:bool
+class BookingResponse(BaseModel):
+    id: int
+    username: str
+    room_id: int
+    date: date
+    start_time: time
+    end_time: time
 
     class Config:
-        orm_mode=True
+        from_attributes = True
