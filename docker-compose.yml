@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   db:
     image: postgres:15
@@ -14,9 +12,95 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - backend
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  users_service:
+    build:
+      context: .
+      dockerfile: users_service/Dockerfile
+    container_name: users_service
+    ports:
+      - "8001:8001"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: meetingroom_db
+      POSTGRES_HOST: db
+      POSTGRES_PORT: "5432"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - backend
+    restart: unless-stopped
+
+  rooms_service:
+    build:
+      context: .
+      dockerfile: rooms_service/Dockerfile
+    container_name: rooms_service
+    ports:
+      - "8002:8002"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: meetingroom_db
+      POSTGRES_HOST: db
+      POSTGRES_PORT: "5432"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - backend
+    restart: unless-stopped
+
+  bookings_service:
+    build:
+      context: .
+      dockerfile: bookings_service/Dockerfile
+    container_name: bookings_service
+    ports:
+      - "8003:8003"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: meetingroom_db
+      POSTGRES_HOST: db
+      POSTGRES_PORT: "5432"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - backend
+    restart: unless-stopped
+
+  reviews_service:
+    build:
+      context: .
+      dockerfile: reviews_service/Dockerfile
+    container_name: reviews_service
+    ports:
+      - "8004:8004"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: meetingroom_db
+      POSTGRES_HOST: db
+      POSTGRES_PORT: "5432"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - backend
+    restart: unless-stopped
 
 volumes:
   postgres_data:
 
 networks:
   backend:
+    driver: bridge

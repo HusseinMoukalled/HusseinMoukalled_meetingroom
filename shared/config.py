@@ -4,10 +4,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Settings:
-    POSTGRES_USER: str = os.getenv("POSTGRES_USER", "rico")
-    POSTGRES_PASSWORD: str = os.getenv("POSTGRES_PASSWORD", "password123")
+    POSTGRES_USER: str = os.getenv("POSTGRES_USER", "postgres")
+    POSTGRES_PASSWORD: str = os.getenv("POSTGRES_PASSWORD", "postgres")
     POSTGRES_DB: str = os.getenv("POSTGRES_DB", "meetingroom_db")
-    POSTGRES_HOST: str = os.getenv("POSTGRES_HOST", "localhost")
+    POSTGRES_HOST: str = os.getenv("POSTGRES_HOST", "db")
     POSTGRES_PORT: str = os.getenv("POSTGRES_PORT", "5432")
 
     @property
