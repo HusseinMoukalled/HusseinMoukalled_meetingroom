@@ -1,0 +1,266 @@
+
+============================================================
+PERFORMANCE PROFILING REPORT
+============================================================
+
+Endpoint: POST http://localhost:8001/users/register
+  Iterations: 5
+  Success Rate: 20.00%
+  Average Response Time: 238.18 ms
+  Min Response Time: 238.18 ms
+  Max Response Time: 238.18 ms
+  Median Response Time: 238.18 ms
+  Standard Deviation: 0.00 ms
+
+Endpoint: POST http://localhost:8001/users/login
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 244.15 ms
+  Min Response Time: 221.16 ms
+  Max Response Time: 258.59 ms
+  Median Response Time: 245.67 ms
+  Standard Deviation: 11.85 ms
+
+Endpoint: GET http://localhost:8001/users/perfuser1763992284
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 21.99 ms
+  Min Response Time: 12.15 ms
+  Max Response Time: 34.70 ms
+  Median Response Time: 17.13 ms
+  Standard Deviation: 9.98 ms
+
+Endpoint: GET http://localhost:8001/users/
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 21.65 ms
+  Min Response Time: 11.00 ms
+  Max Response Time: 36.07 ms
+  Median Response Time: 17.72 ms
+  Standard Deviation: 9.95 ms
+
+Endpoint: PUT http://localhost:8001/users/perfuser1763992284
+  Iterations: 5
+  Success Rate: 100.00%
+  Average Response Time: 40.33 ms
+  Min Response Time: 17.87 ms
+  Max Response Time: 68.19 ms
+  Median Response Time: 36.82 ms
+  Standard Deviation: 20.98 ms
+
+Endpoint: PUT http://localhost:8001/users/perfuser1763992284/role
+  Iterations: 5
+  Success Rate: 0.00%
+  Average Response Time: 0.00 ms
+  Min Response Time: 0.00 ms
+  Max Response Time: 0.00 ms
+  Median Response Time: 0.00 ms
+  Standard Deviation: 0.00 ms
+
+Endpoint: GET http://localhost:8001/users/perfuser1763992284/bookings
+  Iterations: 10
+  Success Rate: 0.00%
+  Average Response Time: 0.00 ms
+  Min Response Time: 0.00 ms
+  Max Response Time: 0.00 ms
+  Median Response Time: 0.00 ms
+  Standard Deviation: 0.00 ms
+
+Endpoint: POST http://localhost:8002/rooms/add
+  Iterations: 5
+  Success Rate: 20.00%
+  Average Response Time: 12.35 ms
+  Min Response Time: 12.35 ms
+  Max Response Time: 12.35 ms
+  Median Response Time: 12.35 ms
+  Standard Deviation: 0.00 ms
+
+Endpoint: GET http://localhost:8002/rooms/
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 19.94 ms
+  Min Response Time: 9.10 ms
+  Max Response Time: 37.05 ms
+  Median Response Time: 14.42 ms
+  Standard Deviation: 11.05 ms
+
+Endpoint: GET http://localhost:8002/rooms/available
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 24.45 ms
+  Min Response Time: 11.53 ms
+  Max Response Time: 35.58 ms
+  Median Response Time: 27.56 ms
+  Standard Deviation: 9.30 ms
+
+Endpoint: GET http://localhost:8002/rooms/available?capacity=10
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 16.16 ms
+  Min Response Time: 8.82 ms
+  Max Response Time: 28.20 ms
+  Median Response Time: 12.29 ms
+  Standard Deviation: 7.56 ms
+
+Endpoint: GET http://localhost:8002/rooms/status/6
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 21.49 ms
+  Min Response Time: 11.32 ms
+  Max Response Time: 35.04 ms
+  Median Response Time: 14.81 ms
+  Standard Deviation: 10.56 ms
+
+Endpoint: GET http://localhost:8002/rooms/6
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 16.07 ms
+  Min Response Time: 7.70 ms
+  Max Response Time: 28.16 ms
+  Median Response Time: 13.89 ms
+  Standard Deviation: 6.21 ms
+
+Endpoint: PUT http://localhost:8002/rooms/update/6
+  Iterations: 5
+  Success Rate: 100.00%
+  Average Response Time: 15.41 ms
+  Min Response Time: 9.89 ms
+  Max Response Time: 36.46 ms
+  Median Response Time: 10.22 ms
+  Standard Deviation: 11.76 ms
+
+Endpoint: GET http://localhost:8003/bookings/check?room_id=6&date=2025-12-31&start_time=16:00:00&end_time=17:00:00
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 19.22 ms
+  Min Response Time: 10.49 ms
+  Max Response Time: 39.23 ms
+  Median Response Time: 14.53 ms
+  Standard Deviation: 10.87 ms
+
+Endpoint: POST http://localhost:8003/bookings/create
+  Iterations: 5
+  Success Rate: 20.00%
+  Average Response Time: 17.75 ms
+  Min Response Time: 17.75 ms
+  Max Response Time: 17.75 ms
+  Median Response Time: 17.75 ms
+  Standard Deviation: 0.00 ms
+
+Endpoint: GET http://localhost:8003/bookings/user/perfuser1763992284
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 18.47 ms
+  Min Response Time: 8.42 ms
+  Max Response Time: 32.16 ms
+  Median Response Time: 11.52 ms
+  Standard Deviation: 10.89 ms
+
+Endpoint: GET http://localhost:8003/bookings/
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 18.15 ms
+  Min Response Time: 9.22 ms
+  Max Response Time: 35.71 ms
+  Median Response Time: 13.28 ms
+  Standard Deviation: 10.50 ms
+
+Endpoint: GET http://localhost:8003/bookings/2
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 14.79 ms
+  Min Response Time: 9.13 ms
+  Max Response Time: 27.97 ms
+  Median Response Time: 11.71 ms
+  Standard Deviation: 6.62 ms
+
+Endpoint: PUT http://localhost:8003/bookings/2
+  Iterations: 5
+  Success Rate: 0.00%
+  Average Response Time: 0.00 ms
+  Min Response Time: 0.00 ms
+  Max Response Time: 0.00 ms
+  Median Response Time: 0.00 ms
+  Standard Deviation: 0.00 ms
+
+Endpoint: GET http://localhost:8004/reviews/room/6
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 16.54 ms
+  Min Response Time: 8.26 ms
+  Max Response Time: 34.92 ms
+  Median Response Time: 12.67 ms
+  Standard Deviation: 9.37 ms
+
+Endpoint: POST http://localhost:8004/reviews/create
+  Iterations: 5
+  Success Rate: 0.00%
+  Average Response Time: 0.00 ms
+  Min Response Time: 0.00 ms
+  Max Response Time: 0.00 ms
+  Median Response Time: 0.00 ms
+  Standard Deviation: 0.00 ms
+
+Endpoint: GET http://localhost:8004/reviews/all
+  Iterations: 10
+  Success Rate: 0.00%
+  Average Response Time: 0.00 ms
+  Min Response Time: 0.00 ms
+  Max Response Time: 0.00 ms
+  Median Response Time: 0.00 ms
+  Standard Deviation: 0.00 ms
+
+Endpoint: GET http://localhost:8004/reviews/user/perfuser1763992284
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 23.29 ms
+  Min Response Time: 10.52 ms
+  Max Response Time: 32.78 ms
+  Median Response Time: 23.30 ms
+  Standard Deviation: 8.85 ms
+
+Endpoint: GET http://localhost:8004/reviews/2
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 25.90 ms
+  Min Response Time: 14.32 ms
+  Max Response Time: 38.03 ms
+  Median Response Time: 29.04 ms
+  Standard Deviation: 7.99 ms
+
+Endpoint: PUT http://localhost:8004/reviews/2
+  Iterations: 5
+  Success Rate: 100.00%
+  Average Response Time: 24.31 ms
+  Min Response Time: 10.95 ms
+  Max Response Time: 35.82 ms
+  Median Response Time: 27.56 ms
+  Standard Deviation: 10.04 ms
+
+Endpoint: POST http://localhost:8004/reviews/2/flag
+  Iterations: 5
+  Success Rate: 100.00%
+  Average Response Time: 21.74 ms
+  Min Response Time: 12.77 ms
+  Max Response Time: 34.92 ms
+  Median Response Time: 16.28 ms
+  Standard Deviation: 10.14 ms
+
+Endpoint: GET http://localhost:8004/reviews/flagged/all
+  Iterations: 10
+  Success Rate: 100.00%
+  Average Response Time: 17.11 ms
+  Min Response Time: 9.68 ms
+  Max Response Time: 31.56 ms
+  Median Response Time: 12.54 ms
+  Standard Deviation: 8.75 ms
+
+Endpoint: POST http://localhost:8004/reviews/2/unflag
+  Iterations: 5
+  Success Rate: 100.00%
+  Average Response Time: 24.70 ms
+  Min Response Time: 12.10 ms
+  Max Response Time: 37.34 ms
+  Median Response Time: 29.27 ms
+  Standard Deviation: 11.75 ms
+
