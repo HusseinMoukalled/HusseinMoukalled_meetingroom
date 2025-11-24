@@ -1,4 +1,9 @@
 import pytest
+import os
+
+# Set TESTING environment variable before importing apps
+os.environ["TESTING"] = "true"
+
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -7,7 +12,6 @@ from users_service.app.main import app as users_app
 from rooms_service.app.main import app as rooms_app
 from bookings_service.app.main import app as bookings_app
 from reviews_service.app.main import app as reviews_app
-import os
 
 # Use test database
 TEST_DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/test_meetingroom_db"
@@ -22,16 +26,23 @@ def override_get_db():
     finally:
         db.close()
 
+@pytest.fixture(scope="function", autouse=True)
+def setup_database():
+    """Create all database tables before each test and clean up after."""
+    # Create tables before test
+    Base.metadata.create_all(bind=engine)
+    yield
+    # Clean up after test
+    Base.metadata.drop_all(bind=engine)
+
 @pytest.fixture(scope="function")
 def db_session():
-    """Create a fresh database for each test."""
-    Base.metadata.create_all(bind=engine)
+    """Create a database session for each test."""
     db = TestingSessionLocal()
     try:
         yield db
     finally:
         db.close()
-        Base.metadata.drop_all(bind=engine)
 
 @pytest.fixture
 def users_client():

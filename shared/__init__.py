@@ -1,2 +1,2 @@
-# Shared module for Smart Meeting Room Management System
+# Shared module for Hussein's Meeting Room Management System
 

@@ -4,7 +4,7 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../'))
 
-project = 'Smart Meeting Room Management System'
+project = "Hussein's Meeting Room Management System"
 copyright = '2025, Hussein Moukalled'
 author = 'Hussein Moukalled'
 

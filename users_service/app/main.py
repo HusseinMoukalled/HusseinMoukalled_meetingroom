@@ -4,8 +4,13 @@ from users_service.app.routers import users
 from shared.database import Base, engine
 import users_service.app.models
 
-# Create database tables
-Base.metadata.create_all(bind=engine)
+# Create database tables (only if not in test mode)
+import os
+if os.getenv("TESTING") != "true":
+    try:
+        Base.metadata.create_all(bind=engine)
+    except Exception:
+        pass  # Database might not be available during import
 
 app = FastAPI(
     title="Users Service",

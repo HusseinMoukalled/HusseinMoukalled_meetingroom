@@ -1,7 +1,7 @@
 Services Overview
 =================
 
-The Smart Meeting Room Management System consists of four microservices:
+Hussein's Meeting Room Management System consists of four microservices:
 
 Users Service
 -------------
