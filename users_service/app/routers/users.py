@@ -5,6 +5,12 @@ from users_service.app import models, auth
 from users_service.app.schemas import UserCreate, UserLogin, UserUpdate, UserResponse, UserBookingHistoryResponse, BookingHistoryItem
 from users_service.app.deps import get_current_user, require_admin
 from shared.database import get_db
+from shared.exceptions import (
+    ValidationException,
+    NotFoundException,
+    ConflictException,
+    AuthenticationException
+)
 import re
 from pydantic import EmailStr
 
